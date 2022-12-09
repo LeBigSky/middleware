@@ -14,13 +14,16 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Back Office') }}
                     </x-nav-link>
-                    <x-nav-link href="/" :active="request()->Is('')">
+                    <x-nav-link href="/" :active="request()->Is('/')">
                         {{ __('Acceuil') }}
                     </x-nav-link>
                     <x-nav-link href="/article" :active="request()->Is('article')">
-                        {{ __('Article') }}
+                        {{ __('Articles') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('article.create')" :active="request()->routeIs('article.create')">
+                        {{ __('Creer') }}
                     </x-nav-link>
                 </div>
             </div>
