@@ -14,7 +14,7 @@
     @endif
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Articles') }}
+            {{ __('Users') }}
         </h2>
     </x-slot>
  
@@ -22,7 +22,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <h2>Ceci est la page article</h2>
+                    <h2>Ceci est la page User</h2>
                     <!-- component -->
 <div class="flex flex-col">
     <div class="overflow-x-auto sm:mx-0.5 lg:mx-0.5">
@@ -35,28 +35,28 @@
                   #
                 </th>
                 <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                  Titre
+                  Nom
                 </th>
                 <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                  Descritpion
+                  Role
                 </th>
                 <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                 Bouton
+                 Email
                 </th>
               </tr>
             </thead>
             <tbody>
-              @foreach ($articles as $article )
+              @foreach ($users as $user )
               <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $loop->iteration }}</td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                 <a href="/article/{{ $article->id }}">{{ $article->titre }}</a> 
+                 {{ $user->name }}
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    {{ $article->texte }}
+                    {{ $user->role->role }}
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  
+                    {{ $user->email }}
                 </td>
               </tr>
               @endforeach

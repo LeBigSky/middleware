@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,10 +24,10 @@ Route::get('/', function () {
 });
 
 Route::resource('article', ArticleController::class)->middleware(['auth', 'verified']);
-
+Route::get('/users', [UserController::class, 'user'])->middleware(['auth', 'verified'])->name('users');
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'admin'])->name('dashboard');
+})->middleware(['auth', 'webmaster'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -15,9 +15,12 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function __construct()
+     public function __construct(User $user)
      {
-        $this->middleware(['admin'])->except(['index']);
+     
+   
+          $this->middleware(['webmaster'])->except(['index', 'show']);  
+     
      }
     public function index()
     {
