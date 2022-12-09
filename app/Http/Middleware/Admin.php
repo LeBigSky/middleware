@@ -21,7 +21,7 @@ class Admin
         return $next($request);
     }
     else {
-        return redirect('/')->with('danger', 'désolé vous ne pouvez pas acceder a cette page');
+        return redirect('/')->with('danger', 'désolé vous ne pouvez pas acceder a ce contenu');
     }
        
     }

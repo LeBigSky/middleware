@@ -29,6 +29,10 @@ class UserSeeder extends Seeder
             'email' => 'nexa@nexa.com', 
             'role_id' => '3', 
             'password' => Hash::make('nexa@nexa.com')], 
+            ['name' => 'reda', 
+            'email' => 'reda@reda.com', 
+            'role_id' => '4', 
+            'password' => Hash::make('reda@reda.com')], 
          ]);
     }
 }

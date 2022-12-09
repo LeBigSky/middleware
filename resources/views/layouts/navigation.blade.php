@@ -13,8 +13,6 @@
                     </a> 
                     @endif 
                     @endauth
-                   
-                  
                 </div>
 
                 <!-- Navigation Links -->
@@ -25,8 +23,11 @@
                     @auth
                     <x-nav-link href="/article" :active="request()->Is('article')">
                         {{ __('Articles') }}
+                   
                     </x-nav-link>
-                    @if (Auth::user()->role_id == 1 ||Auth::user()->role_id == 3 )
+                    @endauth
+                    @auth
+                    @if (Auth::user()->role_id == 1 ||Auth::user()->role_id == 3 ||Auth::user()->role_id == 4 )
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Back Office') }}
                     </x-nav-link>

@@ -52,7 +52,7 @@ class ArticleController extends Controller
         $store->texte = $request->texte;
         $store->user_id = $user->id;
         $store->save();
-        return redirect('/');
+        return redirect('article');
     }
 
     /**
@@ -88,11 +88,20 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $user= User::find(Auth::id());
-    
-        $article->titre = $request->titre;
-        $article->texte = $request->texte;
-        $article->user_id = $user->id;
-        $article->save();
+        if($user->role_id == 4 ){
+            if($article->user_id == 4){
+                 $article->titre = $request->titre;
+                $article->texte = $request->texte;
+                $article->user_id = $user->id;
+                $article->save();
+            }
+        }
+            elseif ($user->role_id == 1 ||$user->role_id == 3 ){
+            $article->titre = $request->titre;
+            $article->texte = $request->texte;
+            $article->user_id = $user->id;
+            $article->save();
+            }
         return redirect()->route('article.index');
     }
 
@@ -104,7 +113,17 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+        $user= User::find(Auth::id());
+    
+        if($user->role_id == 4 ){
+               if($article->user_id == 4)
         $article->delete();
+        }
+        elseif ($user->role_id == 1 ||$user->role_id == 3 )
+        {
+ $article->delete();
+        }
+         
         return redirect()->route('article.index');
     }
 }

@@ -22,9 +22,14 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <h2>Ceci est l'acceuil</h2>
-                </div>
+                
+                @if (Auth::user() == null)
+                    <h2>Vous n'avez pas de compte ? Connectez-vous ou Inscrivez-vous pour voir nos articles !</h2>    
+                @elseif (Auth::user() != null)
+                    <div class="p-6 text-gray-900">
+                    <h2>Bienvenue sur la page d'acceuil</h2>
+                </div>            
+                @endif
             </div>
         </div>
     </div>

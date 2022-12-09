@@ -20,7 +20,7 @@ class ArticleSeeder extends Seeder
             'texte' => "ceci n'est rien d'autre qu'un article de base, un simple article de base",
             'user_id' => 1], 
             ['titre' => 'article Premium',
-            'texte' => "ceci est premium, de qualité, fait main",
+            'texte' => "ceci est article premium, rédigé par une personne lettré, entièrement à la main avec un jolie stylo",
             'user_id' => 1], 
          ]);
     }
